@@ -1,8 +1,7 @@
 /* The PERALCO "Pera-Saving" Bill & Payment Simulator 
 By: Hans Mozol
 For: CCPROG1
-Language Used: C
-Github Repo Link: */
+Language Used: C*/
 
 
 #include <stdio.h>
@@ -86,8 +85,8 @@ void process_bayad_counter(double final_bill) //PROCESSES THE TRANSACTION
 	payAmount >= final_bill ? (change = payAmount - final_bill) : (amountDue = final_bill - payAmount); // IF THE AMOUNT EXCEEDS THE BILL, THE VARIABLE CHANGE WILL BE ASSIGNED TO A VALUE, OTHERWISE THE DUE AMOUNT WILL BE UPDATED
 	amountDue >= 1 ? printf("Payment Status: Partially Paid!") : printf("Payment Status: Fully Paid!"); // IF THERE IS AN AMOUNT DUE, PRINT "PARTIALLY PAID", OTHERWISE PRINT "FULLY PAID"
 	
-	change >= 1 ? printf("\n\nChange Cash-Back: Php %.2lf", change) : printf("\nAmount due: %.2lf", amountDue);
-	printf("\nThank you for using the Peralco System!");
+	change >= 1 ? printf("\nChange Cash-Back: Php %.2lf", change) : (amountDue >= 1 ? printf("\nAmount due: %.2lf", amountDue) : printf("\nNo change!")); // IF THERE IS A CHANGE: PRINT THE CHANGE AMOUNT, IF THERE IS AN AMOUNT DUE, PRINT THE AMOUNT DUE, IF NONE OF THE CONDITIONS ARE MET, IT MEANS THE AMOUNT DUE WAS PAID WITH THE EXACT AMOUNT.
+		printf("\n\nThank you for using the Peralco System!");
 	
 }
 
